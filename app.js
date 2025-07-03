@@ -27,6 +27,7 @@ app.get('/', function( req, res ) {
       PREFIX nfo: <http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#>
       PREFIX dbpedia: <http://dbpedia.org/resource/>
       PREFIX nie: <http://www.semanticdesktop.org/ontologies/2007/01/19/nie#>
+      PREFIX schema: <http://schema.org/>
 
       INSERT DATA {
         ${sparqlEscapeUri(shareUri)}
@@ -35,7 +36,8 @@ app.get('/', function( req, res ) {
           nie:dataSource ${sparqlEscapeUri(virtualUri)}.
         ${sparqlEscapeUri(virtualUri)}
           ${baseFileDataProperties};
-          mu:uuid ${sparqlEscapeString(virtualUuid)}.
+          mu:uuid ${sparqlEscapeString(virtualUuid)};
+          schema:embeddedTextCaption ${sparqlEscapeString(req.query.string)}.
       }`);
 
       res.send(JSON.stringify({ data: { type: "file-data-objects", attributes: { uri: virtualUri }}}));
