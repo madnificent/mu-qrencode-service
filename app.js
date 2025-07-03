@@ -2,7 +2,7 @@ import { app, errorHandler } from 'mu';
 import qrEncode from "./lib/qr-encode";
 import delta from './config/delta';
 
-app.get('/generate', async (req, res) => {
+app.post('/generate', async (req, res) => {
   try {
     const { uri, uuid } = await qrEncode(req.query.string);
     res.send(JSON.stringify({ data: { type: "file-data-objects", attributes: { uri, uuid } } }));
