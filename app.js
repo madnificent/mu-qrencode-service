@@ -1,6 +1,7 @@
 import { app, errorHandler } from 'mu';
 import qrEncode from "./lib/qr-encode";
 import delta from './config/delta';
+import bodyParser from 'body-parser';
 
 app.post('/generate', async (req, res) => {
   try {
@@ -14,7 +15,7 @@ app.post('/generate', async (req, res) => {
   }
 });
 
-app.post('/delta', (req, res) => {
+app.post('/delta', bodyParser.json({ limit: '50mb' }), (req, res) => {
   delta(req, res);
 });
 
