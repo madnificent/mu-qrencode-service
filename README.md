@@ -1,6 +1,6 @@
 # QR Encode service
 
-Generates QR codes.
+Generates QR codes based on `qrencode`
 
 ## Tutorials
 
