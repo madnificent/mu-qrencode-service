@@ -159,7 +159,7 @@ Will contain all generated QR codes and the link to the URI they describe.
        -> "dbpedia:fileExtension"
        -> "dct:created"
        -> "nie:dataSource"
-       -> "schema:embeddedTextCaption
+       -> "schema:embeddedTextCaption"
        <- "ext:qrCode"))
 ```
 
