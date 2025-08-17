@@ -1,4 +1,4 @@
-FROM semtech/mu-javascript-template:feature-simplify-build-process
+FROM semtech/mu-javascript-template:1.9.0
 LABEL maintainer="Aad Versteden <madnificent@gmail.com>"
 
 RUN apt-get update; apt-get -y upgrade; apt-get -y install qrencode
